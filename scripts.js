@@ -20,8 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function loadImage(index) {
     const imgData = imagesData[index];
     if (imgData) {
-      const sliderImageContainer = document.querySelector(".slider-image");
-      const imgElement = sliderImageContainer.querySelector("img");
+      const imgElement = document.querySelector(".slider-image img");
       
       imgElement.src = imgData.image;
       imgElement.alt = "Image " + (index + 1);
