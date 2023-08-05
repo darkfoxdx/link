@@ -68,7 +68,7 @@ body {
 }
 
 /* Slider styling */
-.slider {
+.slider-image {
     position: relative;
     width: 300px; /* Set a static width for the slider */
     height: 200px; /* Set a static height for the slider */
