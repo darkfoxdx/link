@@ -1,0 +1,142 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basic styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.container {
+    max-width: 400px; /* Keep the width for mobile */
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.profile {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+    display: block;
+}
+
+.description {
+    font-size: 14px;
+}
+
+.social-icons {
+    text-align: center;
+    margin-bottom: 20px;
+    width: 100%; /* Expand the width for desktop */
+}
+
+.social-icons a {
+    display: inline-block;
+    margin: 0 10px;
+    color: #333;
+    font-size: 24px;
+}
+
+.buttons {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%; /* Expand the width for desktop */
+}
+
+.button {
+    display: block;
+    padding: 12px 16px; /* Increase the button height */
+    margin: 5px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 14px;
+    flex: 1;
+}
+
+.slider {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.slider-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.slider-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.slider-caption {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 4px 8px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 12px;
+}
+
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    padding: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.slider-left {
+    left: 10px;
+}
+
+.slider-right {
+    right: 10px;
+}
+
+/* Media Query for Desktop */
+@media (min-width: 768px) {
+    .container {
+        max-width: 800px; /* Adjust the width for desktop */
+    }
+}
+
+/* Media Query for Mobile */
+@media (max-width: 480px) {
+    .avatar {
+        width: 80px;
+        height: 80px;
+    }
+
+    .description {
+        font-size: 12px;
+    }
+
+    .social-icons a {
+        font-size: 20px; /* Adjust the icon size for mobile */
+    }
+}

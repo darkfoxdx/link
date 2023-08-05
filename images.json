@@ -1,0 +1,14 @@
+[
+    {
+      "image": "assets/acrylics.jpg",
+      "caption": "Image caption 1"
+    },
+    {
+      "image": "assets/digital.jpg",
+      "caption": "Image caption 2"
+    },
+    {
+      "image": "assets/gouche.jpg",
+      "caption": "Image caption 3"
+    }
+]
