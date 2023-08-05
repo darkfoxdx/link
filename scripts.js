@@ -20,12 +20,15 @@ document.addEventListener("DOMContentLoaded", function () {
   function loadImage(index) {
     const imgData = imagesData[index];
     if (imgData) {
-      sliderImage.src = imgData.image;
-      sliderImage.alt = "Image " + (index + 1);
+      const sliderImageContainer = document.querySelector(".slider-image");
+      const imgElement = sliderImageContainer.querySelector("img");
+      
+      imgElement.src = imgData.image;
+      imgElement.alt = "Image " + (index + 1);
       sliderCaption.textContent = imgData.caption;
     }
   }
-
+  
   function navigate(direction) {
     currentImageIndex = (currentImageIndex + direction + imagesData.length) % imagesData.length;
     loadImage(currentImageIndex);
