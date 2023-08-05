@@ -127,6 +127,11 @@ body {
     .container {
         max-width: 800px;
     }
+
+    .slider {
+        width: 500px; /* Increase the width for desktop */
+        height: 300px; /* Increase the height for desktop */
+    }
 }
 
 
