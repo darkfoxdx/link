@@ -109,8 +109,8 @@ body {
     border: none;
     color: #fff;
     font-size: 20px;
-    padding: 8px;
-    border-radius: 50%;
+    padding: 10px; /* Increase padding to make it rounder */
+    border-radius: 50%; /* Make it round */
     cursor: pointer;
 }
 
