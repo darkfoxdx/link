@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let buttonsData = [];
   let socialsData = [];
   let themesData = [];
+  let selectedtheme = {};
   let currentImageIndex = 0;
 
   const sliderImage = document.querySelector(".slider-image img");
@@ -65,11 +66,11 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function applyTheme(themeName) {
-    const theme = themesData.find((t) => t.name === themeName);
-    if (theme) {
-      bodyElement.style.backgroundColor = theme.bodyBackgroundColor;
-      profileDescription.style.color = theme.profileDescriptionColor;
-      avatarImage.src = theme.avatarSrc;
+    selectedtheme = themesData.find((t) => t.name === themeName);
+    if (selectedtheme) {
+      bodyElement.style.backgroundColor = selectedtheme.bodyBackgroundColor;
+      profileDescription.style.color = selectedtheme.profileDescriptionColor;
+      avatarImage.src = selectedtheme.avatarSrc;
     }
   }
 
@@ -88,8 +89,11 @@ document.addEventListener("DOMContentLoaded", function () {
         button.textContent = buttonData.title;
         
         //Theme
-        button.style.backgroundColor = theme.buttonBackgroundColor;
-        button.style.color = theme.buttonTextColor;
+        if (selectedtheme) {
+          button.style.backgroundColor = selectedtheme.buttonBackgroundColor;
+          button.style.color = selectedtheme.buttonTextColor;
+        }
+
 
         buttonsContainer.appendChild(button);
 
@@ -103,7 +107,10 @@ document.addEventListener("DOMContentLoaded", function () {
         const socialIcon = document.createElement("a");
         socialIcon.href = socialData.url;
         socialIcon.className = "social-icon";
-        socialIcon.style.color = theme.socialIconColor;
+
+        if (selectedtheme)  {
+          socialIcon.style.color = selectedtheme.socialIconColor;
+        }
 
         // Create Font Awesome icon element based on social platform name
         const iconClass = getFontAwesomeIconClass(socialData.name);
