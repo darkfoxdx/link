@@ -93,7 +93,8 @@ document.addEventListener("DOMContentLoaded", function () {
       "paypal": "fab fa-paypal",
       "telegram": "fab fa-telegram",
       "whatsapp": "fab fa-whatsapp",
-      "steam": "fab fa-steam"
+      "steam": "fab fa-steam",
+      "x-twitter": "fab fa-x-twitter"
     };
     return iconMapping[socialName] || "fas fa-question"; // Default to question icon if not found
   }
