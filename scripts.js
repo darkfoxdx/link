@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let imagesData = [];
   let buttonsData = [];
   let socialsData = [];
+  let themesData = [];
   let currentImageIndex = 0;
 
   const sliderImage = document.querySelector(".slider-image img");
@@ -10,6 +11,19 @@ document.addEventListener("DOMContentLoaded", function () {
   const sliderRightButton = document.querySelector(".slider-right");
   const buttonsContainer = document.getElementById("buttons-container");
   const socialIconsContainer = document.getElementById("social-icons-container");
+  const htmlElement = document.documentElement;
+  const profileDescription = document.querySelector(".description");
+  const avatarImage = document.querySelector(".avatar");
+
+  function loadThemesData(callback) {
+    fetch("themes.json")
+      .then((response) => response.json())
+      .then((data) => {
+        themesData = data;
+        callback();
+      })
+      .catch((error) => console.error("Error loading themes data:", error));
+  }
 
   function loadImagesData(callback) {
     fetch("images.json")
@@ -47,6 +61,18 @@ document.addEventListener("DOMContentLoaded", function () {
       sliderImage.src = imgData.image;
       sliderImage.alt = "Image " + (index + 1);
       sliderCaption.textContent = imgData.caption;
+    }
+  }
+
+  function applyTheme(themeName) {
+    const theme = themesData.find((t) => t.name === themeName);
+    if (theme) {
+      htmlElement.style.backgroundColor = theme.htmlBackgroundColor;
+      profileDescription.style.color = theme.profileDescriptionColor;
+      avatarImage.src = theme.avatarSrc;
+      buttonsContainer.style.backgroundColor = theme.buttonBackgroundColor;
+      buttonsContainer.style.color = theme.buttonTextColor;
+      socialIconsContainer.style.color = theme.socialIconColor;
     }
   }
 
@@ -114,23 +140,29 @@ document.addEventListener("DOMContentLoaded", function () {
     loadImage(currentImageIndex);
   }
 
-  loadImagesData(function () {
-    loadImage(currentImageIndex);
-  });
+  loadThemesData(function () {
+    // Apply the default theme on page load
+    applyTheme("default");
 
-  loadButtonsData(function () {
-    addButtons();
-  });
+    // Load other data and set up event listeners
+    loadImagesData(function () {
+      loadImage(currentImageIndex);
+    });
 
-  loadSocialsData(function () {
-    addSocialIcons();
-  });
+    loadButtonsData(function () {
+      addButtons();
+    });
 
-  sliderLeftButton.addEventListener("click", function () {
-    navigate(-1);
-  });
+    loadSocialsData(function () {
+      addSocialIcons();
+    });
 
-  sliderRightButton.addEventListener("click", function () {
-    navigate(1);
+    sliderLeftButton.addEventListener("click", function () {
+      navigate(-1);
+    });
+
+    sliderRightButton.addEventListener("click", function () {
+      navigate(1);
+    });
   });
 });

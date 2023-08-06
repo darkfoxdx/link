@@ -1,0 +1,20 @@
+[
+    {
+      "name": "default",
+      "buttonTextColor": "#f3d250",
+      "buttonBackgroundColor": "#b19cd9",
+      "socialIconColor": "#b19cd9",
+      "htmlBackgroundColor": "#f5f5dc",
+      "profileDescriptionColor": "#333333",
+      "avatarSrc": "assets/avatar.png"
+    },
+    {
+      "name": "light",
+      "buttonTextColor": "#000000",
+      "buttonBackgroundColor": "#ffffff",
+      "socialIconColor": "#333333",
+      "htmlBackgroundColor": "#ffffff",
+      "profileDescriptionColor": "#555555",
+      "avatarSrc": "assets/avatar.png"
+    }
+  ]
