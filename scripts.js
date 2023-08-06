@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let socialsData = [];
   let themesData = [];
   let selectedtheme = {};
+  let profileData = {};
   let currentImageIndex = 0;
 
   const sliderImage = document.querySelector(".slider-image img");
@@ -15,9 +16,20 @@ document.addEventListener("DOMContentLoaded", function () {
   const bodyElement = document.body;
   const profileDescription = document.querySelector(".description");
   const avatarImage = document.querySelector(".avatar");
+  
 
   function loadThemesData(callback) {
-    fetch("themes.json")
+    fetch("data/profile.json")
+      .then((response) => response.json())
+      .then((data) => {
+        profileData = data;
+        callback();
+      })
+      .catch((error) => console.error("Error loading profile data:", error));
+  }
+
+  function loadThemesData(callback) {
+    fetch("data/themes.json")
       .then((response) => response.json())
       .then((data) => {
         themesData = data;
@@ -27,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function loadImagesData(callback) {
-    fetch("images.json")
+    fetch("data/images.json")
       .then((response) => response.json())
       .then((data) => {
         imagesData = data;
@@ -37,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function loadButtonsData(callback) {
-    fetch("buttons.json")
+    fetch("data/buttons.json")
       .then((response) => response.json())
       .then((data) => {
         buttonsData = data;
@@ -47,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function loadSocialsData(callback) {
-    fetch("socials.json")
+    fetch("data/socials.json")
       .then((response) => response.json())
       .then((data) => {
         socialsData = data;
@@ -65,12 +77,18 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  function loadProfile() {
+    if (profileData) {
+      avatarImage.src = profileData.avatarSrc;
+      profileDescription.textContent = profileData.description;
+    }
+  }
+
   function applyTheme(themeName) {
     selectedtheme = themesData.find((t) => t.name === themeName);
     if (selectedtheme) {
       bodyElement.style.backgroundColor = selectedtheme.bodyBackgroundColor;
       profileDescription.style.color = selectedtheme.profileDescriptionColor;
-      avatarImage.src = selectedtheme.avatarSrc;
     }
   }
 
