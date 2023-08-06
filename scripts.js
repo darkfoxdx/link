@@ -174,6 +174,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // Apply the default theme on page load
     applyTheme("default");
 
+    loadProfile();
+
     // Load other data and set up event listeners
     loadImagesData(function () {
       loadImage(currentImageIndex);
