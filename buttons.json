@@ -1,4 +1,8 @@
-[
+[    {
+        "url": "/assets/elisewong.vcf",
+        "title": "Add to Contact",
+        "mobileVisible": true
+    },
     {
         "url": "https://elisewongcreations.com",
         "title": "Website"

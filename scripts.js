@@ -50,29 +50,41 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  function isMobileDevice() {
+    const userAgent = navigator.userAgent.toLowerCase();
+    const isMobile = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent);
+    return isMobile;
+  }
+
   function addButtons() {
     buttonsData.forEach((buttonData) => {
-      const button = document.createElement("a");
-      button.href = buttonData.url;
-      button.className = "button";
-      button.textContent = buttonData.title;
-      buttonsContainer.appendChild(button);
+      if ((isMobileDevice() && buttonsData.mobileVisible) || 
+      (!isMobileDevice() && !buttonsData.mobileVisible)) { // Check mobileVisible and device type
+        const button = document.createElement("a");
+        button.href = buttonData.url;
+        button.className = "button";
+        button.textContent = buttonData.title;
+        buttonsContainer.appendChild(button);
+      }
     });
   }
 
   function addSocialIcons() {
     socialsData.forEach((socialData) => {
-      const socialIcon = document.createElement("a");
-      socialIcon.href = socialData.url;
-      socialIcon.className = "social-icon";
-      
-      // Create Font Awesome icon element based on social platform name
-      const iconClass = getFontAwesomeIconClass(socialData.name);
-      const iconElement = document.createElement("i");
-      iconElement.className = iconClass;
-      
-      socialIcon.appendChild(iconElement);
-      socialIconsContainer.appendChild(socialIcon);
+      if ((isMobileDevice() && socialData.mobileVisible) || 
+            (!isMobileDevice() && !socialData.mobileVisible)) { // Check device type or mobileVisible
+        const socialIcon = document.createElement("a");
+        socialIcon.href = socialData.url;
+        socialIcon.className = "social-icon";
+
+        // Create Font Awesome icon element based on social platform name
+        const iconClass = getFontAwesomeIconClass(socialData.name);
+        const iconElement = document.createElement("i");
+        iconElement.className = iconClass;
+
+        socialIcon.appendChild(iconElement);
+        socialIconsContainer.appendChild(socialIcon);
+      }
     });
   }
 
