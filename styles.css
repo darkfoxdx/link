@@ -112,6 +112,11 @@ body {
     padding: 10px; /* Increase padding to make it rounder */
     border-radius: 50%; /* Make it round */
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px; /* Set a width to ensure a circular shape */
+    height: 30px; /* Set a height to ensure a circular shape */
 }
 
 .slider-left {
