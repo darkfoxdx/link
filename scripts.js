@@ -70,18 +70,6 @@ document.addEventListener("DOMContentLoaded", function () {
       bodyElement.style.backgroundColor = theme.bodyBackgroundColor;
       profileDescription.style.color = theme.profileDescriptionColor;
       avatarImage.src = theme.avatarSrc;
-      
-      // Apply theme colors to buttons and their text
-      const buttons = document.querySelectorAll(".button");
-      buttons.forEach((button) => {
-        button.style.backgroundColor = theme.buttonBackgroundColor;
-        button.style.color = theme.buttonTextColor;
-      });
-
-      const socials = document.querySelectorAll(".social-icon");
-      socials.forEach((button) => {
-        button.style.color = theme.socialIconColor;
-      });
     }
   }
 
@@ -98,7 +86,13 @@ document.addEventListener("DOMContentLoaded", function () {
         button.href = buttonData.url;
         button.className = "button";
         button.textContent = buttonData.title;
+        
+        //Theme
+        button.style.backgroundColor = theme.buttonBackgroundColor;
+        button.style.color = theme.buttonTextColor;
+
         buttonsContainer.appendChild(button);
+
       }
     });
   }
@@ -109,11 +103,13 @@ document.addEventListener("DOMContentLoaded", function () {
         const socialIcon = document.createElement("a");
         socialIcon.href = socialData.url;
         socialIcon.className = "social-icon";
+        socialIcon.style.color = theme.socialIconColor;
 
         // Create Font Awesome icon element based on social platform name
         const iconClass = getFontAwesomeIconClass(socialData.name);
         const iconElement = document.createElement("i");
         iconElement.className = iconClass;
+
 
         socialIcon.appendChild(iconElement);
         socialIconsContainer.appendChild(socialIcon);
@@ -150,6 +146,9 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   loadThemesData(function () {
+    // Apply the default theme on page load
+    applyTheme("default");
+
     // Load other data and set up event listeners
     loadImagesData(function () {
       loadImage(currentImageIndex);
@@ -171,7 +170,5 @@ document.addEventListener("DOMContentLoaded", function () {
       navigate(1);
     });
 
-    // Apply the default theme on page load
-    applyTheme("default");
   });
 });
