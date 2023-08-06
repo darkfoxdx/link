@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const sliderRightButton = document.querySelector(".slider-right");
   const buttonsContainer = document.getElementById("buttons-container");
   const socialIconsContainer = document.getElementById("social-icons-container");
-  const htmlElement = document.documentElement;
+  const bodyElement = document.body;
   const profileDescription = document.querySelector(".description");
   const avatarImage = document.querySelector(".avatar");
 
@@ -67,12 +67,21 @@ document.addEventListener("DOMContentLoaded", function () {
   function applyTheme(themeName) {
     const theme = themesData.find((t) => t.name === themeName);
     if (theme) {
-      htmlElement.style.backgroundColor = theme.htmlBackgroundColor;
+      bodyElement.style.backgroundColor = theme.bodyBackgroundColor;
       profileDescription.style.color = theme.profileDescriptionColor;
       avatarImage.src = theme.avatarSrc;
-      buttonsContainer.style.backgroundColor = theme.buttonBackgroundColor;
-      buttonsContainer.style.color = theme.buttonTextColor;
-      socialIconsContainer.style.color = theme.socialIconColor;
+      
+      // Apply theme colors to buttons and their text
+      const buttons = document.querySelectorAll(".button");
+      buttons.forEach((button) => {
+        button.style.backgroundColor = theme.buttonBackgroundColor;
+        button.style.color = theme.buttonTextColor;
+      });
+
+      const socials = document.querySelectorAll(".social-icon");
+      socials.forEach((button) => {
+        button.style.color = theme.socialIconColor;
+      });
     }
   }
 
@@ -141,9 +150,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   loadThemesData(function () {
-    // Apply the default theme on page load
-    applyTheme("default");
-
     // Load other data and set up event listeners
     loadImagesData(function () {
       loadImage(currentImageIndex);
@@ -164,5 +170,8 @@ document.addEventListener("DOMContentLoaded", function () {
     sliderRightButton.addEventListener("click", function () {
       navigate(1);
     });
+
+    // Apply the default theme on page load
+    applyTheme("default");
   });
 });
