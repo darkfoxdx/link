@@ -58,8 +58,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function addButtons() {
     buttonsData.forEach((buttonData) => {
-      if ((isMobileDevice() && buttonsData.mobileVisible) || 
-      (!isMobileDevice() && !buttonsData.mobileVisible)) { // Check mobileVisible and device type
+      if ((isMobileDevice() && buttonData.mobileVisible) || 
+      (!isMobileDevice() && !buttonData.mobileVisible)) { // Check mobileVisible and device type
         const button = document.createElement("a");
         button.href = buttonData.url;
         button.className = "button";
