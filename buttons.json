@@ -1,14 +1,22 @@
 [
     {
-      "url": "#",
-      "title": "Portfolio"
+        "url": "https://elisewongcreations.com",
+        "title": "Website"
     },
     {
-      "url": "#",
-      "title": "Contact"
+        "url": "https://www.patreon.com/EliseWongCreations",
+        "title": "Support me on Patreon"
     },
     {
-      "url": "#",
-      "title": "Blog"
+        "url": "https://www.twitch.tv/EliseWongCreations",
+        "title": "Watch me on Twitch"
+    },
+    {
+        "url": "https://shopee.com.my/elisewongcreations",
+        "title": "Shop on Shopee"
+    },
+    {
+        "url": "https://wildlifereferencephotos.com/gallery.php?mode=contributor-media&id=493&page=1",
+        "title": "Wildlife Reference Photos"
     }
   ]
