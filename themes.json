@@ -1,9 +1,9 @@
 [
     {
       "name": "default",
-      "buttonTextColor": "#f3d250",
-      "buttonBackgroundColor": "#b19cd9",
-      "socialIconColor": "#b19cd9",
+      "buttonTextColor": "#f4d56e",
+      "buttonBackgroundColor": "#8a63a3",
+      "socialIconColor": "#8a63a3",
       "bodyBackgroundColor": "#f5f5dc",
       "profileDescriptionColor": "#333333",
       "avatarSrc": "assets/avatar.png"
