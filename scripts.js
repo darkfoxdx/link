@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function addButtons() {
     buttonsData.forEach((buttonData) => {
-      if (!isMobileDevice() || buttonData.mobileVisible) { // Check mobileVisible and device type
+      if (buttonData.mobileVisible || isMobileDevice()) { // Check mobileVisible and device type
         const button = document.createElement("a");
         button.href = buttonData.url;
         button.className = "button";
@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function addSocialIcons() {
     socialsData.forEach((socialData) => {
-      if (!isMobileDevice() || socialData.mobileVisible) { // Check device type or mobileVisible
+      if (socialData.mobileVisible || isMobileDevice()) { // Check device type or mobileVisible
         const socialIcon = document.createElement("a");
         socialIcon.href = socialData.url;
         socialIcon.className = "social-icon";
