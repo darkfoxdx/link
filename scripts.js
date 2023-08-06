@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const avatarImage = document.querySelector(".avatar");
   
 
-  function loadThemesData(callback) {
+  function loadProfileData(callback) {
     fetch("data/profile.json")
       .then((response) => response.json())
       .then((data) => {
@@ -174,6 +174,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // Apply the default theme on page load
     applyTheme("default");
 
+    loadProfileData(function () {
+      loadProfile();
+    });
     loadProfile();
 
     // Load other data and set up event listeners
